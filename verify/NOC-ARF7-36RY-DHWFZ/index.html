@@ -17,8 +17,9 @@
     To change it, replace credential.pdf and re-run from the project root:
       python tools/render-verify-pdf.py verify/NOC-ARF7-36RY-DHWFZ
   -->
-  <main id="pages"></main>
-  <noscript><img src="credential-1.png" alt="Credential document"></noscript>
+  <main id="pages">
+    <img src="credential-1.png" alt="Credential document">
+  </main>
   <script>
     (function () {
       var root = document.getElementById('pages');
@@ -28,7 +29,7 @@
         img.onload = function () { root.appendChild(img); load(n + 1); };
         img.src = 'credential-' + n + '.png';
       }
-      load(1);
+      load(2);
     })();
   </script>
 </body>
