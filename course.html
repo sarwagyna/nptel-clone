@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course | NPTEL</title>
+  <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <script src="assets/js/layout.js" data-part="header"></script>
+
+  <main class="flex-grow-1 pb-5">
+    <div class="container pt-4" id="course-root"></div>
+  </main>
+
+  <!-- "Congratulations" modal -->
+  <div class="modal fade" id="celebrateModal" tabindex="-1" aria-labelledby="celebrateTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered celebrate-dialog">
+      <div class="modal-content celebrate-content">
+        <div class="celebrate-hero">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="celebrate-emblem" aria-hidden="true">🎉</div>
+        </div>
+        <div class="celebrate-body">
+          <h3 id="celebrateTitle">Congratulations on completing the course!</h3>
+          <p class="sub">Create a post to celebrate with friends and family.</p>
+          <ul class="celebrate-points">
+            <li><i class="bi bi-person-check"></i>Your name and course are filled in for you</li>
+            <li><i class="bi bi-lock"></i>Nothing is posted until <strong>you</strong> choose to share it. Your result stays private.</li>
+            <li><i class="bi bi-arrow-left-circle"></i>Opens <strong>Imprzd</strong>, a free post maker. Press Back to return here.</li>
+          </ul>
+          <div class="celebrate-actions">
+            <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Not now</button>
+            <button type="button" class="btn btn-celebrate" id="createPost"><span aria-hidden="true">✨</span> Create my post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/layout.js" data-part="footer"></script>
+  <script src="assets/js/layout.js" data-part="report"></script>
+
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/course.js"></script>
+</body>
+</html>
