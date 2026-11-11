@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>NOC-ARF7-36RY-DHWFZ</title>
+  <style>
+    html, body { margin: 0; background: #fff; }
+    main { max-width: 900px; margin: 0 auto; }
+    img { display: block; width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <!--
+    The document is shown as images: credential-1.png, credential-2.png, ... (one per PDF page).
+    To change it, replace credential.pdf and re-run from the project root:
+      python tools/render-verify-pdf.py verify/NOC-ARF7-36RY-DHWFZ
+  -->
+  <main id="pages"></main>
+  <noscript><img src="credential-1.png" alt="Credential document"></noscript>
+  <script>
+    (function () {
+      var root = document.getElementById('pages');
+      function load(n) {
+        var img = new Image();
+        img.alt = n === 1 ? 'Credential document' : 'Credential document, page ' + n;
+        img.onload = function () { root.appendChild(img); load(n + 1); };
+        img.src = 'credential-' + n + '.png';
+      }
+      load(1);
+    })();
+  </script>
+</body>
+</html>
