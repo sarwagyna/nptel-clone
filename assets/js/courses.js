@@ -1,6 +1,6 @@
 /* My Courses page: renders current / past courses, list + grid views, and filtering. */
 (function () {
-  const { courses, esc, scoreClass, SWAYAM_URL } = window.NPTEL;
+  const { courses, esc, scoreClass, SWAYAM_URL, CERTIFICATE_URL } = window.NPTEL;
   const $ = (id) => document.getElementById(id);
 
   const state = { view: 'list', semester: 'all', year: 'all', status: 'all' };
@@ -24,7 +24,7 @@
   const actions = (c) => {
     const cert =
       c.status === 'certified'
-        ? `<a class="btn btn-sm btn-nptel" href="#" data-cert="${esc(c.id)}"><i class="bi bi-download me-1"></i>Certificate</a>`
+        ? `<a class="btn btn-sm btn-nptel" href="${CERTIFICATE_URL}" download><i class="bi bi-download me-1"></i>Certificate</a>`
         : '';
     const view = `<a class="btn btn-sm btn-outline-primary" href="course.html?id=${encodeURIComponent(c.id)}"><i class="bi bi-eye me-1"></i>View</a>`;
     const swayam = c.current
@@ -148,11 +148,6 @@
   };
   $('viewList').addEventListener('click', () => setView('list'));
   $('viewGrid').addEventListener('click', () => setView('grid'));
-
-  // Certificate downloads are not wired to a backend in this static build.
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('[data-cert]')) e.preventDefault();
-  });
 
   render();
 })();

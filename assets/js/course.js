@@ -3,7 +3,7 @@
  * Add &celebrate=1 to open the "Congratulations" modal on load.
  */
 (function () {
-  const { courses, enrollment, esc, scoreClass, SWAYAM_URL } = window.NPTEL;
+  const { courses, enrollment, esc, scoreClass, SWAYAM_URL, CERTIFICATE_URL } = window.NPTEL;
 
   // Where "Create my post" should send the student (the Imprzd post maker).
   // Left empty on purpose: set it to the real URL and the button will open it in a new tab.
@@ -61,7 +61,7 @@
 
     const buttons = certified
       ? `
-        <a class="btn btn-success btn-sm" href="#" data-cert><i class="bi bi-download me-1"></i>Download Certificate</a>
+        <a class="btn btn-success btn-sm" href="${CERTIFICATE_URL}" download><i class="bi bi-download me-1"></i>Download Certificate</a>
         <span class="celebrate-wrap">
           <button type="button" class="btn btn-nptel btn-sm" data-bs-toggle="modal" data-bs-target="#celebrateModal">
             <span aria-hidden="true">🎉</span> Celebrate your achievement
@@ -180,10 +180,6 @@
   `;
 
   /* ---------- behaviour ---------- */
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('[data-cert]')) e.preventDefault(); // no backend in this static build
-  });
-
   const modalEl = document.getElementById('celebrateModal');
   const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
 

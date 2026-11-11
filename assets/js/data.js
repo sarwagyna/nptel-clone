@@ -1,6 +1,7 @@
 /* Mock data + small helpers shared by both pages. */
 window.NPTEL = (function () {
   const SWAYAM_URL = 'https://swayam.gov.in';
+  const CERTIFICATE_URL = 'verify/NOC-ARF7-36RY-DHWFZ/credential.pdf';
 
   const courses = [
     {
@@ -38,5 +39,5 @@ window.NPTEL = (function () {
   // green >= 75, amber >= 40, red below
   const scoreClass = (n) => (n == null ? 'none' : n >= 75 ? 'high' : n >= 40 ? 'mid' : 'low');
 
-  return { SWAYAM_URL, courses, enrollment, esc, scoreClass };
+  return { SWAYAM_URL, CERTIFICATE_URL, courses, enrollment, esc, scoreClass };
 })();
