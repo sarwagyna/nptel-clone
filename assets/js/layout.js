@@ -44,7 +44,7 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-person-circle"></i> st0802@srmist.edu.in
+                  <i class="bi bi-person-circle"></i> sarwannandhofficial672007@gmail.com
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="#">Profile</a></li>
