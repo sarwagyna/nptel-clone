@@ -31,7 +31,8 @@ window.NPTEL = (function () {
     institution: 'SRM Institute of Science and Technology - Kattankulathur Campus',
     lcId: '183',
     payment: 'Paid',
-    examRegistration: 'Registered'
+    examRegistration: 'Registered',
+    hallTicket: 'NOC26CS39S564800016'
   };
 
   const esc = (s) =>

@@ -96,6 +96,7 @@
       ${kv('LC ID', esc(enrollment.lcId))}
       ${kv('Payment Status', `<span class="badge bg-success">${esc(enrollment.payment)}</span>`)}
       ${kv('Exam Registration', `<span class="badge bg-success">${esc(enrollment.examRegistration)}</span>`)}
+      <div class="small">Hall Ticket: ${esc(enrollment.hallTicket)}</div>
     </div>`;
 
   const assignmentRows = assignments
