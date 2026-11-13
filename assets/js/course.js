@@ -46,9 +46,13 @@
     score
   }));
   const submitted = assignments.filter((a) => a.score != null);
-  const average = submitted.length
-    ? (submitted.reduce((s, a) => s + a.score, 0) / submitted.length).toFixed(2)
-    : '-';
+  const bestAssignments = [...submitted]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 8);
+  const bestAverage = bestAssignments.length
+    ? bestAssignments.reduce((sum, a) => sum + a.score, 0) / bestAssignments.length
+    : null;
+  const assignmentContribution = bestAverage == null ? null : bestAverage * 0.25;
 
   /* ---------- fragments ---------- */
   const resultBody = () => {
@@ -96,19 +100,25 @@
 
   const assignmentRows = assignments
     .map((a) => {
-      const pct = a.score == null ? '-' : `${((a.score / a.max) * 100).toFixed(0)}%`;
-      const badge =
+      const pct = a.score == null ? null : Math.round((a.score / a.max) * 100);
+      const status =
         a.score == null
           ? '<span class="badge bg-secondary">Not Submitted</span>'
-          : '<span class="badge bg-success">Submitted</span>';
+          : '<span class="badge bg-success">Submitted</span> <span class="badge bg-info text-dark">Graded</span>';
       return `
         <tr>
           <td><span class="badge bg-secondary">Week ${a.week}</span></td>
           <td>${esc(a.name)}</td>
           <td class="c">${a.max}</td>
-          <td class="c">${a.score == null ? '-' : a.score}</td>
-          <td class="c">${pct}</td>
-          <td>${badge}</td>
+          <td class="c">${a.score == null ? '-' : `<span class="assignment-score">${a.score.toFixed(1)}</span>`}</td>
+          <td class="c">
+            ${pct == null ? '-' : `
+              <div class="progress assignment-progress" role="progressbar" aria-label="Week ${a.week} assignment score"
+                   aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-danger" style="width: ${pct}%">${pct}%</div>
+              </div>`}
+          </td>
+          <td class="assignment-status">${status}</td>
         </tr>`;
     })
     .join('');
@@ -147,7 +157,8 @@
           <div class="panel-bar"><h2><i class="bi bi-graph-up"></i> Score Summary</h2></div>
           <div class="summary-body">
             <div class="summary-stat"><div class="big">${assignments.length}</div><div class="lbl">Total Assignments</div></div>
-            <div class="summary-stat"><div class="big">${average === '-' ? '-' : average}</div><div class="lbl">Average Score</div></div>
+            <div class="summary-stat"><div class="big">${bestAverage == null ? '-' : bestAverage.toFixed(2)}</div><div class="lbl">Best 8 Average</div></div>
+            <div class="summary-stat"><div class="big">${assignmentContribution == null ? '-' : `${assignmentContribution.toFixed(0)} / 25`}</div><div class="lbl">Assignment Contribution</div></div>
           </div>
         </section>
       </div>

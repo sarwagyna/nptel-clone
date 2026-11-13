@@ -14,6 +14,7 @@ window.NPTEL = (function () {
       score: 51,
       assignment: 21,
       exam: 30,
+      assignments: [90, 95, 85, 90, null, null, 40, 90, 92, 90, null, null],
       registered: 'July 23, 2026'
     },
     { id: 'noc26-cs39', name: 'Data Base Management System', semester: 'Jan-Apr', year: 2026, status: 'certified', score: 67 },
